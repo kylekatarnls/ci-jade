@@ -17,8 +17,13 @@ no performance loss, views will be loaded as fast as the equivalent
 php views. You can also use ```'cache' => '/your/cutom/path```
 - ci-jade wait for you to load it. Until you call
 ```$this->load->library('jade')``` in your controller, no file from
-the library or the template engine will be load, so performances
+the library or the template engine will be loaded, so performances
 remains exactly the same for your other pages.
+
+If you use PHP 5.4 and composer, consider using the
+[package version](https://github.com/ci-jade/ci-jade) of ci-jade,
+the easiest way to install it, keep it up to date and to use it
+in your controllers.
 
 ## Easy installation
 
