@@ -20,7 +20,7 @@ class Jade {
         }
         if(isset($options['cache'])) {
             if($options['cache'] === TRUE) {
-                $options['cache'] = __DIR__ . '/../cache/jade';
+                $options['cache'] = APPPATH . 'cache/jade';
             }
             if(! file_exists($options['cache']) && ! mkdir($options['cache'], 0777, TRUE)) {
                 throw new Exception("Cache folder does not exists and cannot be created.", 1);
