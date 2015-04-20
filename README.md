@@ -88,14 +88,14 @@ class Main extends CI_Controller {
   public function index()
   {
     $this->load->library('jade');
-    $this->load->vars([
+    $this->load->vars(array(
       'title' => 'My Jade View',
-      'authors' => [
+      'authors' => array(
         'Luke',
         'Leia',
         'Lando'
-      ]
-    ]);
+      )
+    ));
     $this->jade->view('myview');
   }
 }
@@ -127,9 +127,9 @@ class Main extends CI_Controller {
 
   public function index()
   {
-    $this->load->library('jade', [
+    $this->load->library('jade', array(
       'cache' => TRUE
-    ]);
+    ));
     $this->jade->view('myview');
   }
 }
@@ -138,9 +138,9 @@ class Main extends CI_Controller {
 
 Or you can use a custom storage folder:
 ```php
-$this->load->library('jade', [
+$this->load->library('jade', array(
   'cache' => '/tmp/my-cache-folder'
-]);
+));
 ```
 
 If the folder does not exists, the library will try to create it.
@@ -151,10 +151,10 @@ If the folder does not exists, the library will try to create it.
 $content = $this->jade->view('foo', TRUE);
 echo str_replace('<hr>', '----------', $content);
 // works also with vars
-$content = $this->jade->view('foo', [
+$content = $this->jade->view('foo', array(
   'var1' => 1,
   'var2' => 2
-], TRUE);
+), TRUE);
 // and also with view auto-selection
 $content = $this->jade->view(TRUE);
 // see view auto-selection section below
@@ -178,9 +178,9 @@ class Welcome extends CI_Controller {
   }
   
   public bar() {
-    $this->load->library('jade', array(
+    $this->load->library('jade', [
       'cache' => false // will override the SETTINGS class constant
-    ));
+    ]);
     $this->jade->view('welcome/bar');
   }
 }
@@ -210,9 +210,9 @@ class Foo extends CI_Controller {
 class Yep extends CI_Controller {
   public function index() {
     $this->load->library('jade');
-    $this->jade->view([
+    $this->jade->view(array(
       'some' => 'var'
-    ]); // load application/views/yep/index.jade
+    )); // load application/views/yep/index.jade
     // or application/views/yep.jade if it does not exists
   }
   public function nop() {
@@ -233,7 +233,7 @@ class Yep extends CI_Controller {
 If you do no store your *.jade* files in **application/views**,
 use the ```view_path``` setting:
 ```php
-$this->load->library('jade', [
+$this->load->library('jade', array(
   'view_path' => APPPATH . 'jade-templates'
-]);
+));
 ```
